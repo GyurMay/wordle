@@ -1,0 +1,223 @@
+
+body {
+  background: #0f141f;
+  /* margin: 0; */
+}
+
+#grid {
+  display: grid;
+  float: right;
+}
+
+.tile {
+  border: 2px solid rgba(100, 100, 100, 0.8);
+  position: relative;
+  background: #222;
+  float: left;
+  height: 2em;
+  width: 2em;
+  margin: 0.1em 0.1em;
+
+  /** text related **/
+  color: white;
+  text-transform: uppercase;
+  text-align: center;
+  font-family: arial;
+  font-size: 2em;
+  font-weight: bolder;
+
+  box-sizing: border-box;
+  display: inline-flex;
+  vertical-align: middle;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.kb_keys {
+  background: #818384;
+  border: none;
+  color: white;
+  border-radius: 0.4em;
+  margin: 0.3em;
+  text-transform: uppercase;
+  font-weight: 1em;
+  border: 2px solid rgba(0, 0, 0, 0);
+  height: 59px;
+  margin: 0 6px 0 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+main > * {
+  touch-action: manipulation;
+}
+input:focus{
+  outline: none !important;
+}
+.krow {
+  width: 100vw;
+  margin-top: 0.3em;
+  display: flex;
+  touch-action: manipulation;
+}
+
+#keyboard {
+  display: grid;
+  place-items: center;
+  /*! position: absolute; */
+  /*margin-top: 2em;*/
+  bottom: 3px;
+}
+.tile[data-animation="idle"] {
+  border: 2px solid rbga(100, 100, 100, 0.8);
+}
+.tile[data-animation="tbd"] {
+  border: 2px solid rgba(255, 255, 255, 0.5);
+}
+.tile[data-animation="pop"] {
+  animation-name: PopIn;
+  animation-duration: 100ms;
+}
+@keyframes PopIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+
+  40% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+.present,
+.correct,
+.absent {
+  border: 2px solid #333 !important;
+}
+.present {
+  background-color: #b59f3b;
+}
+.correct {
+  background-color: #538d4e;
+}
+.flip-in {
+  animation: flip-in 250ms ease-in-out;
+  animation-fill-mode: forwards;
+}
+.flip-out {
+  animation: flip-out 250ms ease-in-out;
+  animation-fill-mode: forwards;
+}
+.absent {
+  background-color: hsl(0, 0%, 35%);
+}
+
+@keyframes flip-in {
+  from {
+    transform: rotateX(0deg);
+  }
+  to {
+    transform: rotateX(-90deg);
+  }
+}
+
+@keyframes flip-out {
+  from {
+    transform: rotateX(-90deg);
+  }
+  to {
+    transform: rotateX(0deg);
+  }
+}
+body {
+  /* color: white; */
+}
+#banner {
+  font-size: 3em;
+  font-family: sans-serif;
+  color: #ddd;
+  text-shadow: 2px 2px 2px black;
+  letter-spacing: 2px;
+  position: relative;
+  /*! top: 2em; */
+  left: 1em;
+  width: auto;
+}
+#banner > sub {
+  font-size: 1rem;
+  font-family: initial;
+}
+
+@media (min-width: 735px) {
+  .krow {
+    width: 600px;
+  }
+}
+@media (max-width: 735px) {
+  #gameInfo {
+    bottom: 260px;
+    font-size: 80%;
+    position: initial !important;
+  }
+
+  #grid .tile {
+    height: 1.5em;
+    width: 1.5em;
+  }
+  #banner {
+    left: 0;
+  }
+}
+/* div#user_prompt *{
+  padding: 10px;
+  width: 70vw;
+  text-align: center;
+} */
+#gameInfo {
+  position: absolute;
+  right: 1em;
+  padding: 1em;
+  border: 1px solid;
+}
+
+/* #topMsgBox {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  background: rgba(200, 0, 0, 1);
+  z-index: 1;
+}
+#topMsgBox button {
+  border: none;
+
+  animation: bounce 1s ease;
+  animation-iteration-count: 5;
+  font-size: 30px;
+  position: fixed;
+  z-index: 1;
+  background: lightgreen;
+  padding: 20px;
+  border-radius: 10px;
+  /* place-self: center; *ignored in mobile for somereason**/
+  /* display: grid; *ignored in mobile for somereason
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+} */
+
+@keyframes bounce {
+  from {
+  }
+
+  50% {
+    transform: translate(-50%, -60%) /*scale(0.9)*/;
+  }
+
+  to {
+    transform: translate(-50%, -50%) /* scale(1);*/;
+  }
+}

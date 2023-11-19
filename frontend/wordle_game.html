@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <!-- General meta tags needed-->
+        <meta charset="utf-8">
+        <!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> -->
+        <!-- Needed for responsive design -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <!-- If you want custom browser colors on mobile -->
+<!--         <meta name="theme-color" content="#1843c1" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="#1843c1"> -->
+
+        <title>Multiplayer wordle - Play wordle with Friends!</title>
+        
+        <!-- CSS File -->
+		<script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+        <!-- <script src="/wordle/socket.js"></script> backup if no internet, currently not working -->
+
+        <script src="https://cdn.tailwindcss.com"></script>
+
+		<script src="/frontend/wordle_game_script.js" ></script>
+		<link href="/frontend/style.css" rel="stylesheet" >
+
+    </head>
+    <body>
+        <div id="topMsgBox" class="font-bold bg-[rgba(255,255,255,0.4)] whitespace-pre z-10 h-[100vh] w-[100vw] hidden place-content-center items-center fixed" style="">
+            <button onclick="setTimeout(() => {document.location.reload()}, 1000)" class="overflow-hidden max-w-md z-10 border-none animate-bounce bg-lime-300 fixed text-3xl p-[20px] rounded-lg">PLAY AGAIN?</button>
+        </div>
+        <div id="user_prompt" style="" class="flex flex-col justify-center items-center rounded-xl w-full text-gray-50 translate-y-1/2 text-2xl bg-gradient-to-r from-[#141e30] to-[#243b55] color-black h-[300px] [&>*]:mt-3 sm:w-1/2 sm:left-1/2 sm:top-1/2 sm:translate-x-1/2">
+			<input type="name" id="usernameInput" class="animate-pulse p-1 rounded-sm text-center border-b-2 focus:animate-none bg-transparent" placeholder="Name"/>
+			<input type="name" id="serverNameInput" class="p-1 rounded-sm text-center border-b-2 bg-transparent focus:placeholder focus:animate-none animate-[pulse_2s_ease-in-out_infinite]" placeholder="Enter/Create a server name" >
+			<button type="submit" id="saveUserName" class="bg-[#05969e] animate-[spin_.5s_ease-in-out_1] p-2 rounded-md focus:animate-ping">START</button>
+		</div>
+        <div id="main" class="text-gray-50 hidden flex-col place-items-center">
+        	<div id="banner">WORDLE <sub>by Gyurmey<sub></div>
+			<div id="grid"></div>
+			<div id="gameInfo" class="max-w-[300px]">
+				<h2 id="serverNameHolder"></h2>
+                Alerts: <span id="alert" class="text-red-500">none...</span><br />
+				<div id="lobbyList">current Players: </div>
+				<div id="opponentMove" style="color:white"></div>
+            </div>
+            <div id="keyboard"></div>
+        </div>
+
+        <!-- JavaScript File -->
+        <script src="dist/all.js?cb=1659524930030"></script>
+    </body>
+</html>
