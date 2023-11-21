@@ -52,6 +52,7 @@ function req_handler(req, res){
 			res.end("<h1> page not found </h1>");
 			return;
 		}
+		if(url.endsWith(".css")) res.writeHead(200, { "Content-Type": "text/css" })
 		const webpage = fs.createReadStream(url);
 		webpage.pipe(res);
 	}
